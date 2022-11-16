@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9c0d9f6e-c0d0-4d5c-9426-ccb8be9cc835" name="dd">
+        <fileTransfer rootFolder="/home/insun/www" accessType="SFTP" host="13.125.148.213" port="22" sshConfigId="4f295820-a08e-407c-90eb-df8a4e71bfa6" sshConfig="insun@13.125.148.213:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
