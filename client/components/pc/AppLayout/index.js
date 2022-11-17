@@ -13,12 +13,18 @@ const dummyData = [
     title: '서든어택 클원 구함',
     code: 'fei12d',
   }
-]
+];
+
+const dummyUserInfo = {
+  id: 1,
+  nickname: '먹보',
+  mucorn: '1001'
+};
 
 const AppLayout = ({ children }) => {
   const route = useRouter();
 
-  const homeActive = route.pathname === '/' ? style.active : '';
+  const homeActive = !route.query.code ? style.active : '';
 
   return (
     <>
@@ -42,19 +48,28 @@ const AppLayout = ({ children }) => {
           }
         </div>
         <div className={style.tabRight}>
-          <Link href="/login">
-            로그인
-          </Link>
+          {
+            dummyUserInfo
+              ? (
+                <div className={style.userInfoWrapper}>
+                  <div>
+                    <img src={`/image/mucorn/${dummyUserInfo.mucorn}.png`} alt={`mucorn_${dummyUserInfo.mucorn}`} />
+                    <span>{ dummyUserInfo.nickname } 님</span>
+                  </div>
+                </div>
+              )
+              : (
+                  <Link href="/login">
+                    로그인
+                  </Link>
+              )
+          }
         </div>
       </header>
 
       <div className={style.container}>
         {children}
       </div>
-
-      <footer className={style.footer}>
-        MUCHAT 먹챗 | Copyright 2022. MUCHAT all rights reserved.
-      </footer>
     </>
   );
 };

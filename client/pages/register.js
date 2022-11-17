@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
-import LoginForm from "../components/pc/LoginForm";
+import RegisterForm from "../components/pc/RegisterForm";
 
 const Login = () => {
   return (
     <>
       <Head>
-        <title>Muchat - 로그인</title>
+        <title>Muchat - 회원가입</title>
       </Head>
-      <LoginForm />
+      <RegisterForm />
     </>
   );
 };

@@ -21,4 +21,4 @@ pre {overflow-x:scroll}
 fieldset {border:0}
 a, a:link {color:$COLOR_WHITE ;text-decoration:none}
 input:-webkit-autofill {-webkit-box-shadow:0 0 0px 1000px #ffffff75 inset;}
-input, select, textarea {background: #fff; color: #222;}
+input:focus {outline: none}

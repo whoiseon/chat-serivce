@@ -18,7 +18,6 @@
       position: relative;
       min-width: 180px;
       height: 48px;
-      font-weight: bold;
       padding: 6px;
       color: $COLOR_SEMI_GRAY;
 
@@ -46,6 +45,7 @@
       color: $COLOR_BLACK;
       background-color: $BACKGROUND;
       a {
+        font-weight: bold;
         &:hover {
           background-color: $BACKGROUND;
           color: $COLOR_BLACK;
@@ -59,6 +59,7 @@
     min-width: 100px;
     padding: 6px;
     margin-right: 20px;
+
     a {
       display: flex;
       align-items: center;
@@ -72,100 +73,214 @@
         background-color: $MAIN_COLOR_HOVER;
       }
     }
+
+    .userInfoWrapper {
+      display: flex;
+      position: relative;
+      margin-left: auto;
+      margin-right: 20px;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px;
+        height: 36px;
+        background-color: $BACKGROUND_BLACK;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background-color 0.16s ease-in;
+        &:hover {
+          background-color: $BACKGROUND_EXTRA_BLACK;
+        }
+        &:active {
+          background-color: $BACKGROUND_BLACK;
+        }
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+        }
+        span {
+          font-weight: bold;
+          color: $COLOR_BLACK
+        }
+      }
+    }
   }
 }
 
 // Container
 
 .container {
-  height: 100%;
-  padding-top: 40px;
+  width: 100%;
   overflow: hidden;
 
   .inner {
     display: flex;
-    width: 1920px;
+    flex-direction: column;
+    width: 1760px;
     height: 100%;
     overflow: hidden;
     margin: 0 auto;
+
+    .indexTop {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 40px;
+
+      .tagListWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: $COLOR_SEMI_GRAY;
+
+        .active {
+          color: $COLOR_BLACK;
+          font-weight: bold;
+        }
+
+        .tagItemWrapper {
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            height: 48px;
+            cursor: pointer;
+            font-size: 16px;
+            color: inherit;
+          }
+
+          .tagItemUnderline {
+            position: absolute;
+            bottom: 0;
+            background-color: $COLOR_BLACK;
+            width: 100px;
+            height: 2px;
+          }
+        }
+      }
+
+      .topRight {
+        display: flex;
+        margin-left: auto;
+
+        .iconWrapper {
+          width: 48px;
+          height: 48px;
+          background-color: $BACKGROUND_BLACK;
+          border-radius: 30px;
+        }
+      }
+    }
+
+    .chatListWrapper {
+      display: flex;
+      flex-wrap: wrap;
+
+      .chatCard {
+        width: 20rem;
+        margin: 20px;
+        border: 1px solid $BORDER_DEFAULT;
+      }
+    }
   }
-}
-
-// Footer
-
-.footer {
-  display: flex;
-  align-items: center;
-  width: 1920px;
-  overflow: hidden;
-  margin: 0 auto;
-  color: $COLOR_SEMI_GRAY;
-  padding: 40px 0;
 }
 
 // Login
 
 .background {
+  background-color: #F4F5F7;
   display: flex;
   justify-content: center;
-  padding-top: 200px;
   width: 100%;
   height: 100%;
 
   .loginWrapper {
-    width: 400px;
-    .logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 60px;
-      a {
-        img {
-          margin-bottom: 40px;
-          width: 80px;
-          height: 40px;
-          cursor: pointer;
-          transform: scale(1);
-          transition: transform 0.16s ease-in;
+    margin-top: 120px;
+    width: 480px;
+    padding: 40px;
+    .loginInner {
+      padding: 40px;
+      border-radius: 6px;
+      border: 1px solid $BORDER_DEFAULT;
+      background-color: $BACKGROUND;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
 
-          &:hover {
-            transform: scale(1.1);
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+        a {
+          img {
+            margin-bottom: 20px;
+            width: 80px;
+            height: 40px;
+            cursor: pointer;
+            transform: scale(1);
+            transition: transform 0.16s ease-in;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        h1 {
+          font-size: 18px;
+        }
+      }
+
+      .loginInput {
+        margin-bottom: 20px;
+        &:last-of-type {
+          margin-bottom: 40px;
+        }
+        p {
+          display: flex;
+          color: $COLOR_SEMI_GRAY;
+          font-weight: bold;
+          margin-bottom: 10px;
+          i {
+            color: $COLOR_RED;
+            font-style: normal;
+            margin-left: auto;
+          }
+          span {
+            margin-left: auto;
+            opacity: 0.5;
+          }
+        }
+        input {
+          width: 100%;
+          padding: 12px;
+          background-color: $BACKGROUND;
+          border: none;
+          border-bottom: 1px solid $COLOR_SEMI_GRAY;
+          color: $COLOR_BLACK;
+          &:focus {
+            border-bottom: 1px solid $MAIN_COLOR;
           }
         }
       }
 
-      h1 {
-        font-size: 18px;
+      p {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+
+        a {
+          color: $COLOR_BLACK;
+          font-weight: bold;
+          margin-left: 6px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
 
-    .loginInput {
-      margin-bottom: 20px;
-      &:last-of-type {
-        margin-bottom: 40px;
-      }
-      p {
-        display: flex;
-        color: $COLOR_SEMI_GRAY;
-        margin-bottom: 10px;
-        i {
-          color: $COLOR_RED;
-          font-style: normal;
-          margin-left: auto;
-        }
-        span {
-          margin-left: auto;
-          opacity: 0.5;
-        }
-      }
-      input {
-        width: 100%;
-        padding: 18px;
-        background-color: $BACKGROUND_BLACK;
-        border: none;
-        border-radius: 6px;
-        color: $COLOR_BLACK;
-      }
-    }
   }
 }

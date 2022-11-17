@@ -1,7 +1,6 @@
 import React from "react";
 import {useRouter} from "next/router";
 import Head from "next/head";
-import AppLayout from "../../components/pc/AppLayout";
 
 const ChatRoom = () => {
   const router = useRouter();
@@ -9,11 +8,9 @@ const ChatRoom = () => {
   return (
     <>
       <Head>
-        <title>Muchat - {router.query.code}</title>
+        <title>Muchat - 채팅</title>
       </Head>
-      <AppLayout>
-        {router.query.code}
-      </AppLayout>
+      {router.query.code}
     </>
   );
 };
