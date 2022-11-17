@@ -1,3 +1,5 @@
-client/node_modules
-client/.next
+node_modules/
+.next/
 client/next.config.js
+wUdY26Qjwr9rrzCX.pem
+.env

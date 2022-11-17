@@ -18,9 +18,9 @@
       position: relative;
       min-width: 180px;
       height: 48px;
-      font-weight: 500;
+      font-weight: bold;
       padding: 6px;
-      color: $COLOR_GRAY;
+      color: $COLOR_SEMI_GRAY;
 
       a {
         display: flex;
@@ -33,18 +33,24 @@
         color: inherit;
         text-overflow: ellipsis;
         white-space: nowrap;
-        transition: color, background-color 0.14s ease-in;
+        transition: all 0.14s ease-in;
 
         &:hover {
-          background-color: $BACKGROUND;
-          color: $COLOR_SEMI_GRAY;
+          background-color: $BACKGROUND_EXTRA_BLACK;
+          color: $COLOR_GRAY;
         }
       }
     }
 
     .active {
-      color: $COLOR_WHITE;
+      color: $COLOR_BLACK;
       background-color: $BACKGROUND;
+      a {
+        &:hover {
+          background-color: $BACKGROUND;
+          color: $COLOR_BLACK;
+        }
+      }
     }
   }
 
@@ -78,7 +84,7 @@
 
   .inner {
     display: flex;
-    width: 1680px;
+    width: 1920px;
     height: 100%;
     overflow: hidden;
     margin: 0 auto;
@@ -90,11 +96,11 @@
 .footer {
   display: flex;
   align-items: center;
-  width: 1680px;
+  width: 1920px;
   overflow: hidden;
   margin: 0 auto;
   color: $COLOR_SEMI_GRAY;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 // Login
@@ -158,7 +164,7 @@
         background-color: $BACKGROUND_BLACK;
         border: none;
         border-radius: 6px;
-        color: $COLOR_WHITE;
+        color: $COLOR_BLACK;
       }
     }
   }

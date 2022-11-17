@@ -11,6 +11,10 @@
 .mainButton {
   background-color: $MAIN_COLOR;
   color: $COLOR_WHITE;
+  transition: background-color 0.16s ease-in;
+  &:hover {
+    background-color: $MAIN_COLOR_HOVER;
+  }
 }
 
 .whiteButton {
