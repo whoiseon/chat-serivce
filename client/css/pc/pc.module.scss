@@ -66,11 +66,11 @@
       justify-content: center;
       width: 100%;
       border-radius: 6px;
-      background-color: $MAIN_COLOR;
+      background-color: #999999;
       transition: background-color 0.16s ease-in;
       font-weight: bold;
       &:hover {
-        background-color: $MAIN_COLOR_HOVER;
+        background-color: #AAAAAA;
       }
     }
 
@@ -85,7 +85,7 @@
         justify-content: center;
         min-width: 100px;
         height: 36px;
-        background-color: $BACKGROUND_BLACK;
+        background-color: $BACKGROUND;
         cursor: pointer;
         border-radius: 6px;
         transition: background-color 0.16s ease-in;
@@ -113,76 +113,612 @@
 
 .container {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
 
   .inner {
     display: flex;
     flex-direction: column;
     width: 1760px;
     height: 100%;
-    overflow: hidden;
     margin: 0 auto;
 
-    .indexTop {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      margin-top: 40px;
-
-      .tagListWrapper {
-        position: relative;
+    // Index
+    .indexWrapper {
+      .indexTop {
         display: flex;
         align-items: center;
-        color: $COLOR_SEMI_GRAY;
+        width: 100%;
+        margin-top: 40px;
 
-        .active {
-          color: $COLOR_BLACK;
-          font-weight: bold;
-        }
+        .tagListWrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          color: $COLOR_SEMI_GRAY;
 
-        .tagItemWrapper {
-          a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 100px;
-            height: 48px;
-            cursor: pointer;
-            font-size: 16px;
-            color: inherit;
+          .active {
+            color: $COLOR_BLACK;
+            font-weight: bold;
           }
 
-          .tagItemUnderline {
-            position: absolute;
-            bottom: 0;
-            background-color: $COLOR_BLACK;
-            width: 100px;
-            height: 2px;
+          .tagItemWrapper {
+            a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 100px;
+              height: 48px;
+              cursor: pointer;
+              font-size: 16px;
+              color: inherit;
+              background-color: $BACKGROUND;
+              border-radius: 4px;
+              transition: all 0.25s ease;
+
+              &:hover {
+                background-color: $BACKGROUND_BLACK;
+                color: $COLOR_BLACK;
+              }
+            }
+
+            .tagItemUnderline {
+              position: absolute;
+              bottom: 0;
+              background-color: $COLOR_BLACK;
+              width: 100px;
+              height: 2px;
+            }
+          }
+        }
+
+        .topRight {
+          display: flex;
+          margin-left: auto;
+
+          .createChatWrapper {
+            display: flex;
+
+            .createChatBtn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: $MAIN_COLOR;
+              border-radius: 4px;
+              width: 48px;
+              height: 48px;
+              color: $COLOR_WHITE;
+              font-size: 24px;
+              transition: transform 0.25s ease-in;
+
+              &:hover {
+                transform: scale(1.06);
+              }
+
+              img {
+                width: 14px;
+                height: 14px;
+              }
+            }
+
+            .searchBtn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 10px;
+              background-color: $BACKGROUND;
+              border-radius: 4px;
+              width: 48px;
+              height: 48px;
+              color: $COLOR_WHITE;
+              font-size: 24px;
+              transition: all 0.25s ease-in;
+
+              &:hover {
+                transform: scale(1.06);
+                background-color: $BACKGROUND_BLACK;
+              }
+
+              img {
+                width: 16px;
+                height: 16px;
+              }
+            }
           }
         }
       }
 
-      .topRight {
+      .chatListWrapper {
         display: flex;
-        margin-left: auto;
+        margin-top: 2rem;
 
-        .iconWrapper {
-          width: 48px;
-          height: 48px;
-          background-color: $BACKGROUND_BLACK;
-          border-radius: 30px;
+        .chatListBox {
+          flex: 1 1 0%;
+
+          .chatListInner {
+            display: flex;
+            margin: -1rem;
+            flex-wrap: wrap;
+
+            .chatCard {
+              margin: 1rem;
+              min-width: calc(20% - 28px);
+              max-width: calc(20% - 28px);
+              border: 1px solid $BORDER_DEFAULT;
+              border-radius: 4px;
+              cursor: pointer;
+              transform: translateY(0);
+              transition: transform 0.25s ease-in;
+
+              &:hover {
+                transform: translateY(-8px);
+              }
+
+              .chatInfo {
+                padding: 1rem;
+
+                .chatTag {
+                  display: inline-flex;
+                  margin-bottom: 1rem;
+                  padding: 4px 10px;
+                  background-color: $MAIN_COLOR;
+                  color: $COLOR_WHITE;
+                  font-size: 12px;
+                  font-weight: bold;
+                  border-radius: 4px;
+                }
+
+                .chatTitle {
+                  width: 100%;
+                  margin-bottom: 10px;
+                  h1 {
+                    width: 100%;
+                    font-size: 18px;
+                    color: $COLOR_BLACK;
+                    font-weight: 600;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    line-height: 24px;
+                    height: 46px;
+                    max-height: 46px;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  }
+                }
+                .description {
+                  p {
+                    color: $COLOR_GRAY;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    line-height: 16px;
+                    height: 48px;
+                    max-height: 48px;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                  }
+                }
+              }
+
+              .chatManager {
+                display: flex;
+                width: 100%;
+                padding: 1rem;
+                border-top: 1px solid $BORDER_DEFAULT;
+
+                .managerInfo {
+                  display: flex;
+                  align-items: center;
+                  img {
+                    width: 18px;
+                    height: 18px;
+                    margin-right: 8px;
+                  }
+                  span {
+                    font-weight: 500;
+                    color: $COLOR_BLACK
+                  }
+                }
+
+                .currentUser {
+                  display: flex;
+                  align-items: center;
+                  margin-left: auto;
+
+                  img {
+                    width: 12px;
+                    height: 12px;
+                    margin-right: 8px;
+                  }
+
+                  span {
+                    font-weight: 500;
+                    color:  $COLOR_GRAY;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
 
-    .chatListWrapper {
-      display: flex;
-      flex-wrap: wrap;
+    // Index search modal
 
-      .chatCard {
-        width: 20rem;
-        margin: 20px;
-        border: 1px solid $BORDER_DEFAULT;
+    .searchModalBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #111111;
+
+      .searchModalInner {
+        width: 800px;
+        margin: 0 auto;
+        color: $COLOR_WHITE;
+
+        .searchModalHeader {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 40px 0;
+          margin-bottom: 60px;
+
+          .logo {
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 40px;
+              margin-right: 10px;
+            }
+            p {
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+          .closeBtn {
+            display: flex;
+            margin-left: auto;
+            padding: 12px;
+            align-items: center;
+            justify-content: center;
+            background-color: #111111;
+            border-radius: 4px;
+            transition: background-color 0.16s ease-in;
+
+            &:hover {
+              background-color: #333333;
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        .searchInput {
+          position: relative;
+
+          input {
+            width: 100%;
+            height: 60px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            padding: 0 0 0 80px;
+          }
+
+          img {
+            position: absolute;
+            top: 18px;
+            left: 28px;
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+
+    // Search route
+    .searchWrapper {
+      margin-top: 40px;
+
+      .searchHeader {
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 60px;
+          margin-bottom: 40px;
+          border-radius: 10px;
+          border: none;
+          font-size: 20px;
+          padding: 0 0 0 80px;
+          background-color: $BACKGROUND_BLACK;
+        }
+
+        img {
+          position: absolute;
+          top: 18px;
+          left: 28px;
+          width: 24px;
+          height: 24px;
+        }
+
+        p {
+          font-size: 18px;
+          font-weight: bold;
+
+          i {
+            font-style: normal;
+            color: $MAIN_COLOR;
+          }
+        }
+      }
+    }
+
+
+    // Chat
+    .chatWrapper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      .chatHeader {
+        margin-top: 40px;
+
+        .chatTitle {
+          display: flex;
+          align-items: center;
+
+          .chatTag {
+            display: inline-flex;
+            padding: 4px 10px;
+            margin-right: 8px;
+            background-color: $MAIN_COLOR;
+            color: $COLOR_WHITE;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+          }
+
+          h1 {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .chatIndex {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 20px 0;
+
+        .chatFormWrapper {
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 1480px;
+          max-width: 1480px;
+          padding: 1rem;
+          margin-right: 20px;
+          border: 1px solid $BORDER_DEFAULT;
+          border-radius: 4px;
+          overflow-y: scroll;
+
+          .chatFormHeader {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+            background-color: $BACKGROUND_BLACK;
+            border-radius: 4px;
+            p {
+              font-weight: bold;
+              color: $COLOR_GRAY;
+            }
+          }
+
+          .chatMessageWrapper {
+            display: flex;
+            flex-direction: column;
+
+            .messageItem {
+              display: flex;
+              align-items: center;
+              width: 100%;
+
+              .messageUserInfo {
+                min-width: 140px;
+                padding: 10px;
+                background-color: $BACKGROUND;
+                border-radius: 4px;
+
+                img {
+                  width: 20px;
+                  height: 20px;
+                  margin-right: 8px;
+                }
+                span {
+                  font-weight: bold;
+                  color: $COLOR_BLACK
+                }
+              }
+
+              .messageContent {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+                color: #000000;
+              }
+            }
+          }
+        }
+
+        .chatCurrentUserWrapper {
+          flex: 1 0 auto;
+          border: 1px solid $BORDER_DEFAULT;
+          border-radius: 4px;
+
+          .currentUserHeader {
+            padding: 1rem;
+            text-align: center;
+
+            span {
+              font-weight: bold;
+              color: $COLOR_RED;
+
+              &:nth-of-type(1) {
+                margin-right: 6px;
+                color: $COLOR_BLACK;
+              }
+            }
+          }
+
+          .currentUserList {
+
+          }
+        }
+      }
+
+      .chatSendForm {
+        display: flex;
+        margin-bottom: 40px;
+
+        .chatSendWrapper {
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          .inputWrapper {
+            width: 100%;
+
+            .chatToolsWrapper {
+              display: flex;
+              align-items: center;
+              margin-bottom: 1rem;
+
+              span {
+                margin-right: 10px;
+                cursor: pointer;
+                color: $COLOR_GRAY;
+              }
+
+              .chatToolFontSize {
+                display: flex;
+                align-items: center;
+                padding: 6px 12px;
+                border-radius: 6px;
+                background-color: $BACKGROUND;
+                transition: background-color 0.16s ease-in;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: $BACKGROUND_BLACK;
+                }
+
+                select {
+                  border: none;
+                  background-color: inherit;
+                  cursor: pointer;
+                  font-weight: bold;
+
+                  &:focus {
+                    outline: none;
+                  }
+                }
+              }
+
+              .colorPicker {
+                display: flex;
+                align-items: center;
+                padding: 6px 12px;
+                border-radius: 6px;
+                background-color: $BACKGROUND;
+                transition: background-color 0.16s ease-in;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: $BACKGROUND_BLACK;
+                }
+
+                input {
+                  border: 1px solid $BORDER_DEFAULT;
+                  width: 36px;
+                  height: 24px;
+                  border-radius: 4px;
+                  padding: 2px;
+                  background-color: $BACKGROUND;
+                  cursor: pointer;
+                }
+              }
+
+              .fontStyleChange {
+                display: flex;
+                align-items: center;
+                padding: 6px 12px;
+                border-radius: 6px;
+                background-color: $BACKGROUND;
+                transition: background-color 0.16s ease-in;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: $BACKGROUND_BLACK;
+                }
+
+                .fontStyleBold {
+                  font-weight: bold;
+                }
+
+                .fontStyleUnderline {
+                  text-decoration: underline;
+                }
+              }
+            }
+
+            .chatSendInput {
+              position: relative;
+
+              textarea {
+                width: 100%;
+                min-height: 80px;
+                resize: none;
+                border: 1px solid $BORDER_DEFAULT;
+                border-radius: 4px;
+                padding: 1rem 128px 1rem 1rem;
+
+                &:focus {
+                  outline: none;
+                }
+              }
+
+              button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                font-weight: bold;
+                color: $COLOR_WHITE;
+                width: 100px;
+                height: 52px;
+                border-radius: 4px;
+                top: 14px;
+                right: 14px;
+                background-color: $MAIN_COLOR;
+                transition: background-color 0.16s ease-in;
+
+                &:hover {
+                  background-color: $MAIN_COLOR_HOVER;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -200,9 +736,8 @@
   .loginWrapper {
     margin-top: 120px;
     width: 480px;
-    padding: 40px;
     .loginInner {
-      padding: 40px;
+      padding: 60px;
       border-radius: 6px;
       border: 1px solid $BORDER_DEFAULT;
       background-color: $BACKGROUND;
@@ -278,6 +813,23 @@
           &:hover {
             text-decoration: underline;
           }
+        }
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 48px;
+        font-weight: bold;
+        background-color: $MAIN_COLOR;
+        border-radius: 4px;
+        color: $COLOR_WHITE;
+        transition: background-color 0.16s ease-in;
+
+        &:hover {
+          background-color: $MAIN_COLOR_HOVER;
         }
       }
     }

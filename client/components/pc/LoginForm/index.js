@@ -2,7 +2,6 @@ import style from '../../../css/pc/pc.module.scss';
 import Link from "next/link";
 import useInput from "../../../hooks/useInput";
 import {useRef} from "react";
-import Button from "../../common/Button";
 
 const LoginForm = () => {
   const emailRef = useRef();
@@ -28,9 +27,9 @@ const LoginForm = () => {
             <p>비밀번호</p>
             <input type="password" value={password} onChange={onChangePassword} />
           </div>
-          <Button>
+          <button type="button">
             로그인
-          </Button>
+          </button>
           <p>
             아직 회원이 아니신가요?
             <Link href="/register">

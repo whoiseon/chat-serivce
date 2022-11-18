@@ -49,7 +49,7 @@ const AppLayout = ({ children }) => {
         </div>
         <div className={style.tabRight}>
           {
-            dummyUserInfo
+            !dummyUserInfo
               ? (
                 <div className={style.userInfoWrapper}>
                   <div>

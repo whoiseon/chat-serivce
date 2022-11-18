@@ -1,8 +1,8 @@
+import {useRouter} from "next/router";
 import style from '../../../css/pc/pc.module.scss';
-import TagList from "./TagList";
-import ChatCard from "./ChatCard";
-import SearchModal from "./SearchModal";
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
+import useInput from "../../../hooks/useInput";
+import ChatCard from "../IndexList/ChatCard";
 
 const dummyChatData = [
   {
@@ -67,44 +67,48 @@ const dummyChatData = [
   }
 ];
 
-const ChatList = () => {
-  const [searchModal, setSearchModal] = useState(false);
+const SearchForm = () => {
+  const router = useRouter();
 
-  const showSearchModal = useCallback(() => {
-    setSearchModal((prev) => !prev);
-  }, []);
+  const [keyword, onChangeKeyword, setKeyword] = useInput('');
+
+  const onSubmitSearch = useCallback((e) => {
+    e.preventDefault();
+
+    router.push(`/search?keyword=${keyword}`);
+  }, [keyword]);
+
+  useEffect(() => {
+    setKeyword(router.query.keyword)
+  }, [router.query.keyword]);
 
   return (
     <div className={style.inner}>
-      <div className={style.indexWrapper}>
-        <div className={style.indexTop}>
-          <TagList />
-          <div className={style.topRight}>
-            <div className={style.createChatWrapper}>
-              <button className={style.searchBtn} onClick={showSearchModal}>
-                <img src="image/icons/search_icon.svg" alt="search_icon"/>
-              </button>
-              <button type="button" className={style.createChatBtn}>
-                <img src="image/icons/add_plus_icon.svg" alt="add_plus_icon"/>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className={style.chatListWrapper}>
-          <div className={style.chatListBox}>
-            <div className={style.chatListInner}>
-              {
-                dummyChatData.map((chat) => {
-                  return <ChatCard key={chat.code} chat={chat} />
-                })
-              }
+      <div className={style.searchWrapper}>
+        <form className={style.searchHeader} onSubmit={onSubmitSearch}>
+          <input type="text"
+            value={keyword || ''}
+            onChange={onChangeKeyword}
+          />
+          <img src="/image/icons/search_icon.svg" alt="search_icon" />
+          <p><i>{router.query.keyword}</i>에 대한 검색결과</p>
+        </form>
+        <div className={style.indexWrapper}>
+          <div className={style.chatListWrapper}>
+            <div className={style.chatListBox}>
+              <div className={style.chatListInner}>
+                {
+                  dummyChatData.map((chat) => {
+                    return <ChatCard key={chat.code} chat={chat} />
+                  })
+                }
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {searchModal && <SearchModal setSearchModal={setSearchModal} />}
     </div>
   );
 };
 
-export default ChatList;
+export default SearchForm;

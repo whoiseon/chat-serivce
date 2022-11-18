@@ -1,5 +1,7 @@
 node_modules/
 .next/
+.idea
 client/next.config.js
 wUdY26Qjwr9rrzCX.pem
 .env
+.DS_Store

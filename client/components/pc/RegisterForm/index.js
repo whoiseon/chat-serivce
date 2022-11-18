@@ -1,7 +1,6 @@
 import {useState} from "react";
 import Link from "next/link";
 import style from "../../../css/pc/pc.module.scss";
-import Button from "../../common/Button";
 import useInput from "../../../hooks/useInput";
 
 const emailCheck = (email) => {
@@ -41,9 +40,9 @@ const RegisterForm = () => {
             <p>비밀번호 확인</p>
             <input type="password" value={passwordCheck} onChange={onChangePasswordCheck} />
           </div>
-          <Button>
+          <button type="button">
             회원가입
-          </Button>
+          </button>
           <p>
             이미 회원이신가요?
             <Link href="/login">
