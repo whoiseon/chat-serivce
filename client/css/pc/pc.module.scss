@@ -324,6 +324,7 @@
                   display: flex;
                   align-items: center;
                   margin-left: auto;
+                  opacity: 0.6;
 
                   img {
                     width: 12px;
@@ -686,7 +687,7 @@
 
               textarea {
                 width: 100%;
-                min-height: 80px;
+                min-height: 100px;
                 resize: none;
                 border: 1px solid $BORDER_DEFAULT;
                 border-radius: 4px;
@@ -704,8 +705,8 @@
                 position: absolute;
                 font-weight: bold;
                 color: $COLOR_WHITE;
-                width: 100px;
-                height: 52px;
+                width: 120px;
+                height: 72px;
                 border-radius: 4px;
                 top: 14px;
                 right: 14px;
